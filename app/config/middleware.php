@@ -33,6 +33,16 @@ defined('PREVENT_DIRECT_ACCESS') OR exit('No direct script access allowed');
  * @link https://github.com/ronmarasigan/LavaLust
  * @license https://opensource.org/licenses/MIT MIT License
  */
+
+/*
+|--------------------------------------------------------------------------
+| Auto-load Middleware Class
+|--------------------------------------------------------------------------
+*/
+if (file_exists(APP_DIR . 'middlewares/AuthMiddleware.php')) {
+    require_once APP_DIR . 'middlewares/AuthMiddleware.php';
+}
+
 /*
 |--------------------------------------------------------------------------
 | Adding of middlewares
