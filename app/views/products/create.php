@@ -6,7 +6,7 @@
     <title>Add New Product</title>
     <style>
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: Arial, sans-serif;
             background-color: #f4f6f9;
             margin: 0;
             padding: 40px;
@@ -35,7 +35,7 @@
         label {
             display: block;
             margin-bottom: 6px;
-            font-weight: 600;
+            font-weight: bold;
             color: #555555;
             font-size: 14px;
         }
@@ -49,10 +49,6 @@
             box-sizing: border-box;
             font-size: 14px;
         }
-        input:focus, textarea:focus {
-            border-color: #007bff;
-            outline: none;
-        }
         .btn-save {
             background-color: #007bff;
             color: white;
@@ -61,9 +57,8 @@
             border-radius: 4px;
             cursor: pointer;
             font-size: 15px;
-            font-weight: 600;
+            font-weight: bold;
             width: 100%;
-            transition: background-color 0.2s;
         }
         .btn-save:hover {
             background-color: #0056b3;
@@ -75,9 +70,6 @@
             color: #007bff;
             text-decoration: none;
             font-size: 14px;
-        }
-        .back-link:hover {
-            text-decoration: underline;
         }
     </style>
 </head>
