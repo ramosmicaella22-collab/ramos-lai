@@ -40,12 +40,12 @@ $router->get('/', 'UsersController::getUsers');
 $router->get('/users', 'UsersController::getUsers');
 $router->get('/testdb', 'UsersController::testdb');
 
-// Auth routes (Public - walang middleware para maiwasan ang redirect loop)
+// Auth routes (PUBLIC - WALANG MIDDLEWARE)
 $router->get('/login', 'AuthController::login');
 $router->post('/authenticate', 'AuthController::authenticate');
 $router->get('/logout', 'AuthController::logout');
 
-// Product routes (Protected ng Auth Middleware ayon sa Lab Exercise requirements)[cite: 1]
+// Product routes (PROTECTED NG AUTH MIDDLEWARE)
 $router->get('/products', 'ProductController::index')->middleware('auth');
 $router->get('/products/create', 'ProductController::create')->middleware('auth');
 $router->post('/products/store', 'ProductController::store')->middleware('auth');
