@@ -52,6 +52,6 @@ if (file_exists(APP_DIR . 'middlewares/AuthMiddleware.php')) {
 |
 */
 $config['middlewares'] = array(
-    'auth' => new AuthMiddleware()
+    'auth' => 'AuthMiddleware'
 );
 ?>
