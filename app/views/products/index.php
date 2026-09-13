@@ -50,18 +50,6 @@
             font-size: 14px;
             color: #e0e0e0;
         }
-        .btn-logout {
-            background-color: rgba(255, 75, 75, 0.8);
-            color: white;
-            padding: 8px 14px;
-            border-radius: 6px;
-            text-decoration: none;
-            font-size: 13px;
-            transition: background 0.2s;
-        }
-        .btn-logout:hover {
-            background-color: rgb(255, 75, 75);
-        }
         .btn-add {
             background-color: #1b2e25;
             color: white;
@@ -141,7 +129,6 @@
             <h1>Product Inventory</h1>
             <div class="user-section">
                 <span>Welcome!</span>
-                <a href="<?= site_url('logout'); ?>" class="btn-logout">Logout</a>
             </div>
         </div>
 
