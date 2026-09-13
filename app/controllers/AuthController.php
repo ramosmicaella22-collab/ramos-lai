@@ -38,7 +38,7 @@ class AuthController extends Controller
             exit();
         } else {
             $_SESSION['error'] = 'Invalid username or password';
-            redirect('login');
+            redirect('auth/login');
             exit();
         }
     }
@@ -47,7 +47,7 @@ class AuthController extends Controller
     {
         session_unset();
         session_destroy();
-        redirect('login');
+        redirect('auth/login');
         exit();
     }
 }
