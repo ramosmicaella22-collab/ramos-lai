@@ -45,11 +45,11 @@ $router->get('/login', 'AuthController::login');
 $router->post('/authenticate', 'AuthController::authenticate');
 $router->get('/logout', 'AuthController::logout');
 
-// Product routes (PROTECTED NG AUTH MIDDLEWARE)
-$router->get('/products', 'ProductController::index')->middleware('auth');
-$router->get('/products/create', 'ProductController::create')->middleware('auth');
-$router->post('/products/store', 'ProductController::store')->middleware('auth');
-$router->get('/products/edit/{id}', 'ProductController::edit')->middleware('auth');
-$router->post('/products/update/{id}', 'ProductController::update')->middleware('auth');
-$router->get('/products/delete/{id}', 'ProductController::delete')->middleware('auth');
+// Product routes (PROTECTED SA LOOB NG PRODUCTCONTROLLER)
+$router->get('/products', 'ProductController::index');
+$router->get('/products/create', 'ProductController::create');
+$router->post('/products/store', 'ProductController::store');
+$router->get('/products/edit/{id}', 'ProductController::edit');
+$router->post('/products/update/{id}', 'ProductController::update');
+$router->get('/products/delete/{id}', 'ProductController::delete');
 ?>

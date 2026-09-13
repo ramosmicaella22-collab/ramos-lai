@@ -12,30 +12,36 @@ class ProductController extends Controller
         $this->call->library('session');
         $this->call->helper('url');
         $this->call->model('ProductModel');
+    }
 
-        // Protektahan ang lahat ng product pages mula sa unauthenticated users[cite: 1]
+    // Helper method para protektahan ang bawat CRUD endpoint mula sa mga unauthenticated users[cite: 1]
+    private function check_auth()
+    {
         if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
             redirect('login');
             exit();
         }
     }
 
-    // READ - Display all products
+    // READ - Display all products[cite: 1]
     public function index()
     {
+        $this->check_auth();
         $data['products'] = $this->ProductModel->getAll();
         $this->call->view('products/index', $data);
     }
 
-    // CREATE - Show form
+    // CREATE - Show form[cite: 1]
     public function create()
     {
+        $this->check_auth();
         $this->call->view('products/create');
     }
 
-    // CREATE - Save new product
+    // CREATE - Save new product[cite: 1]
     public function store()
     {
+        $this->check_auth();
         $data = [
             'product_name' => $this->io->post('product_name'),
             'description'  => $this->io->post('description'),
@@ -47,16 +53,18 @@ class ProductController extends Controller
         redirect('products');
     }
 
-    // UPDATE - Show edit form
+    // UPDATE - Show edit form[cite: 1]
     public function edit($id)
     {
+        $this->check_auth();
         $data['product'] = $this->ProductModel->getById($id);
         $this->call->view('products/edit', $data);
     }
 
-    // UPDATE - Save changes
+    // UPDATE - Save changes[cite: 1]
     public function update($id)
     {
+        $this->check_auth();
         $data = [
             'product_name' => $this->io->post('product_name'),
             'description'  => $this->io->post('description'),
@@ -68,9 +76,10 @@ class ProductController extends Controller
         redirect('products');
     }
 
-    // DELETE
+    // DELETE - Remove a product[cite: 1]
     public function delete($id)
     {
+        $this->check_auth();
         $this->ProductModel->delete($id);
         redirect('products');
     }
