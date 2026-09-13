@@ -354,6 +354,6 @@ $config['csrf_regenerate']         = FALSE;
 |--------------------------------------------------------------------------
 */
 $config['middlewares'] = array(
-    'auth' => 'AuthMiddleware'
+    'auth' => new AuthMiddleware()
 );
 ?>
