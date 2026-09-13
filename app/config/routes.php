@@ -34,32 +34,22 @@ defined('PREVENT_DIRECT_ACCESS') or exit('No direct script access allowed');
  * @license https://opensource.org/licenses/MIT MIT License
  */
 
-/*
-| -------------------------------------------------------------------
-| URI ROUTING
-| -------------------------------------------------------------------
-| Here is where you can register web routes for your application.
-|
-|
-*/
 /** @var object $router **/
 
 $router->get('/', 'UsersController::getUsers');
 $router->get('/users', 'UsersController::getUsers');
-
-
 $router->get('/testdb', 'UsersController::testdb');
 
-// Auth routes
+// Auth routes (Public - walang middleware para maiwasan ang redirect loop)
 $router->get('/login', 'AuthController::login');
 $router->post('/authenticate', 'AuthController::authenticate');
 $router->get('/logout', 'AuthController::logout');
 
-// Product routes (protected)
+// Product routes (Protected ng Auth Middleware ayon sa Lab Exercise requirements)[cite: 1]
 $router->get('/products', 'ProductController::index')->middleware('auth');
 $router->get('/products/create', 'ProductController::create')->middleware('auth');
 $router->post('/products/store', 'ProductController::store')->middleware('auth');
 $router->get('/products/edit/{id}', 'ProductController::edit')->middleware('auth');
 $router->post('/products/update/{id}', 'ProductController::update')->middleware('auth');
 $router->get('/products/delete/{id}', 'ProductController::delete')->middleware('auth');
-
+?>
