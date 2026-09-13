@@ -41,8 +41,8 @@ $router->get('/users', 'UsersController::getUsers');
 $router->get('/testdb', 'UsersController::testdb');
 
 // Auth routes (PUBLIC - WALANG MIDDLEWARE)
-$router->get('auth/login', 'AuthController@login');
-$router->post('auth/authenticate', 'AuthController@authenticate');
+$router->get('login', 'AuthController::login');
+$router->post('auth/authenticate', 'AuthController::authenticate');
 $router->get('/logout', 'AuthController::logout');
 
 // Product routes (PROTECTED SA LOOB NG PRODUCTCONTROLLER)
