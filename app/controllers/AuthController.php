@@ -6,7 +6,8 @@ class AuthController extends Controller
     public function __construct()
     {
         parent::__construct();
-        $this->call->database(); // Niloload nito ang database library para sa models
+        $this->call->database();
+        $this->call->helper('url'); // Ito ang nag-aayos sa redirect() error
         $this->call->model('AccountModel');
     }
 
