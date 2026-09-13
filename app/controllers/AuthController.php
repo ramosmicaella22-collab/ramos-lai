@@ -7,11 +7,6 @@ class AuthController extends Controller
     {
         parent::__construct();
         
-        // Siguruhing aktibo ang session para gumana ang login state
-        if (session_status() === PHP_SESSION_NONE) {
-            session_start();
-        }
-
         $this->call->database();
         $this->call->helper('url');
         $this->call->library('session');
@@ -20,7 +15,6 @@ class AuthController extends Controller
 
     public function login()
     {
-        // Kung naka-login na, huwag nang pag-access-in ang login page, diretso agad sa products
         if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true) {
             redirect('products');
             exit();
@@ -40,7 +34,6 @@ class AuthController extends Controller
             $_SESSION['logged_in'] = true;
             $_SESSION['username'] = $account['username'];
             
-            // Alisin ang unahang slash para tama ang routing ng LavaLust redirect
             redirect('products');
             exit();
         } else {
