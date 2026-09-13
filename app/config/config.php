@@ -83,12 +83,12 @@ $config['date_default_timezone'] = 'Asia/Manila';
 | URL to your LavaLust root. Typically this will be your base URL,
 | WITH a trailing slash:
 |
-|	http://example.com/
+|   http://example.com/
 |
 | WARNING: You MUST set this value!
 |
 */
-$config['base_url'] 				= '';
+$config['base_url']                 = '';
 
 /*
 |--------------------------------------------------------------------------
@@ -107,8 +107,8 @@ $config['proxy_enabled']           = FALSE;
 |
 | You can enable error logging by setting a threshold over zero.
 |
-|	0 = Disables logging
-|	1 = Exception and Error Messages
+|   0 = Disables logging
+|   1 = Exception and Error Messages
 |   2 = Debug
 |   3 = All
 |
@@ -124,17 +124,17 @@ $config['log_dir']                  = 'runtime/logs/';
 | Enabling this setting will tell LavaLust to look for a Composer
 | package auto-loader script in vendor/autoload.php.
 |
-|	$config['composer_autoload'] = TRUE;
+|   $config['composer_autoload'] = TRUE;
 |
 | Or if you have your vendor/ directory located somewhere else, you
 | can opt to set a specific path as well:
 |
-|	$config['composer_autoload'] = '/path/to/vendor/autoload.php';
+|   $config['composer_autoload'] = '/path/to/vendor/autoload.php';
 |
 | For more information about Composer, please visit http://getcomposer.org/
 |
 | Note: This will NOT disable or override the LavaLust-specific
-|	autoloading (app/config/autoload.php)
+|   autoloading (app/config/autoload.php)
 */
 $config['composer_autoload']        = FALSE;
 
@@ -158,7 +158,7 @@ $config['composer_autoload']        = FALSE;
 | DO NOT CHANGE THIS UNLESS YOU FULLY UNDERSTAND THE REPERCUSSIONS!!
 |
 */
-$config['permitted_uri_chars']		= 'a-z 0-9~%.:_\-';
+$config['permitted_uri_chars']      = 'a-z 0-9~%.:_\-';
 
 /*
 |--------------------------------------------------------------------------
@@ -168,7 +168,7 @@ $config['permitted_uri_chars']		= 'a-z 0-9~%.:_\-';
 | This config will be use html_escape function
 |
 */
-$config['charset']					= 'UTF-8';
+$config['charset']                  = 'UTF-8';
 
 /*
 |--------------------------------------------------------------------------
@@ -178,7 +178,7 @@ $config['charset']					= 'UTF-8';
 | app/views/errors/ directory.  Use a full server path with trailing slash.
 |
 */
-$config['error_view_path']         	= '';
+$config['error_view_path']          = '';
 
 /*
 |--------------------------------------------------------------------------
@@ -187,12 +187,12 @@ $config['error_view_path']         	= '';
 |
 | $config['404_override'] is use if you want to add custom 404 error page.
 |
-|	example: $confg['404_override'] = 'default/404'
+|   example: $confg['404_override'] = 'default/404'
 |
-|	if you have 'default folder' and '404.php file' inside error folder in view
+|   if you have 'default folder' and '404.php file' inside error folder in view
 |
 */
-$config['404_override']       	    = '';
+$config['404_override']             = '';
 
 /*
 |--------------------------------------------------------------------------
@@ -204,7 +204,7 @@ $config['404_override']       	    = '';
 | than en-US.
 |
 */
-$config['language'] 				= 'en-US';
+$config['language']                 = 'en-US';
 
 /*
 |--------------------------------------------------------------------------
@@ -347,4 +347,13 @@ $config['csrf_token_name']         = 'csrf_test_name';
 $config['csrf_cookie_name']        = 'csrf_cookie_name';
 $config['csrf_expire']             = 7200;
 $config['csrf_regenerate']         = FALSE;
+
+/*
+|--------------------------------------------------------------------------
+| Middlewares Configuration
+|--------------------------------------------------------------------------
+*/
+$config['middlewares'] = array(
+    'auth' => 'AuthMiddleware'
+);
 ?>
