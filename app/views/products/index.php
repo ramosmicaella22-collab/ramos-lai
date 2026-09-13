@@ -163,9 +163,10 @@
                 </thead>
                 <tbody>
                     <?php if (!empty($products)): ?>
+                        <?php $i = 1; // Counter para sa sunod-sunod na numbering ?>
                         <?php foreach ($products as $p): ?>
                             <tr>
-                                <td><?= $p['id']; ?></td>
+                                <td><?= $i++; ?></td>
                                 <td><strong><?= $p['product_name']; ?></strong></td>
                                 <td><?= $p['description']; ?></td>
                                 <td>₱<?= number_format($p['price'], 2); ?></td>
