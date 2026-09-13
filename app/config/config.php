@@ -351,10 +351,12 @@ $config['csrf_regenerate']         = FALSE;
 |--------------------------------------------------------------------------
 | Middlewares Configuration
 |--------------------------------------------------------------------------
-| Array of available middlewares in app/middlewares/
-|
 */
-$config['middlewares']             = array(
-    'auth' => 'AuthMiddleware'
+if (file_exists(APP_DIR . 'middlewares/AuthMiddleware.php')) {
+    require_once APP_DIR . 'middlewares/AuthMiddleware.php';
+}
+
+$config['middlewares'] = array(
+    'auth' => new AuthMiddleware()
 );
 ?>
