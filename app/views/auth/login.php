@@ -1,3 +1,27 @@
+<?php
+session_start();
+
+// Dito natin ilalagay ang connection at logic para i-check kung tama ang login
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $username = $_POST['username'] ?? '';
+    $password = $_POST['password'] ?? '';
+
+    // ILAGAY DITO ANG CONNECTION SA DATABASE MO
+    // Halimbawa:
+    // $conn = new mysqli("localhost", "username", "password", "database");
+    
+    // Halimbawa ng fake validation (Palitan mo ng query sa database mo):
+    if ($username === 'admin' && $password === 'password123') {
+        $_SESSION['user_id'] = 1; // Naka-log in na
+        header("Location: products.php"); // Direkta sa dashboard/products mo
+        exit();
+    } else {
+        $_SESSION['error'] = "Mali ang username o password mo!";
+        header("Location: login.php");
+        exit();
+    }
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,7 +36,6 @@
             margin: 0;
             padding: 0;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            /* Nature forest green blurry background inspired by your photo */
             background: linear-gradient(135deg, #2d4a3e 0%, #172821 100%),
                         url('https://images.unsplash.com/photo-1511497584788-876761102346?q=80&w=1920&auto=format&fit=crop') no-repeat center center fixed;
             background-blend-mode: overlay;
@@ -27,7 +50,6 @@
             width: 380px;
             margin-top: 40px;
         }
-        /* Floating Avatar Circle */
         .avatar-badge {
             position: absolute;
             top: -45px;
@@ -49,7 +71,6 @@
             height: 40px;
             fill: #ffffff;
         }
-        /* Glassmorphism Card Box */
         .glass-card {
             background: rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(12px);
@@ -61,7 +82,6 @@
             position: relative;
             overflow: hidden;
         }
-        /* Glossy light sheen effect */
         .glass-card::before {
             content: '';
             position: absolute;
@@ -172,7 +192,7 @@
                 </div>
             <?php endif; ?>
 
-            <form action="login_process.php" method="POST">
+            <form action="" method="POST">
                 
                 <!-- Username / Email Field -->
                 <div class="input-group">
