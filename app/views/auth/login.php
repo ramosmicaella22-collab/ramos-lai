@@ -1,6 +1,4 @@
 <?php
-session_start();
-
 // Dito natin ilalagay ang connection at logic para i-check kung tama ang login
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $username = $_POST['username'] ?? '';
