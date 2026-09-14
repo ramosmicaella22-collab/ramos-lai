@@ -172,7 +172,7 @@
                 </div>
             <?php endif; ?>
 
-            <form action="<?= site_url('auth/authenticate'); ?>" method="POST">
+            <form action="login_process.php" method="POST">
                 
                 <!-- Username / Email Field -->
                 <div class="input-group">
