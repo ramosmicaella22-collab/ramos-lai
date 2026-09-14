@@ -38,9 +38,8 @@ class AuthController extends Controller
             exit();
         } else {
             $_SESSION['error'] = 'Invalid username or password';
-            redirect('auth/login');
+            redirect('login'); // <-- Itinugma natin ito sa route mo na 'login' para hindi mag-404
             exit();
         }
     }
-
 }

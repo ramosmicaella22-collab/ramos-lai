@@ -1,25 +1,3 @@
-<?php
-// Dito natin ilalagay ang connection at logic para i-check kung tama ang login
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $username = $_POST['username'] ?? '';
-    $password = $_POST['password'] ?? '';
-
-    // ILAGAY DITO ANG CONNECTION SA DATABASE MO
-    // Halimbawa:
-    // $conn = new mysqli("localhost", "username", "password", "database");
-    
-    // Halimbawa ng fake validation (Palitan mo ng query sa database mo):
-    if ($username === 'admin' && $password === 'password123') {
-        $_SESSION['user_id'] = 1; // Naka-log in na
-        header("Location: products.php"); // Direkta sa dashboard/products mo
-        exit();
-    } else {
-        $_SESSION['error'] = "Mali ang username o password mo!";
-        header("Location: login.php");
-        exit();
-    }
-}
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -48,6 +26,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             width: 380px;
             margin-top: 40px;
         }
+        /* Floating Avatar Circle */
         .avatar-badge {
             position: absolute;
             top: -45px;
@@ -69,6 +48,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             height: 40px;
             fill: #ffffff;
         }
+        /* Glassmorphism Card Box */
         .glass-card {
             background: rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(12px);
@@ -190,7 +170,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 </div>
             <?php endif; ?>
 
-            <form action="" method="POST">
+            <form action="<?= site_url('auth/authenticate'); ?>" method="POST">
                 
                 <!-- Username / Email Field -->
                 <div class="input-group">
