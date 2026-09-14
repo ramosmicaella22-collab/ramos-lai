@@ -88,7 +88,7 @@ $config['date_default_timezone'] = 'Asia/Manila';
 | WARNING: You MUST set this value!
 |
 */
-$config['base_url']                  = getenv('APP_URL') ?: 'https://lab4-lai.onrender.com/';
+$config['base_url']                  = getenv('APP_URL') ?: 'https://ramos-micaellajayne.onrender.com/';
 
 /*
 |--------------------------------------------------------------------------
