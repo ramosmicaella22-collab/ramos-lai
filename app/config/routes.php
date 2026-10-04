@@ -51,4 +51,27 @@ $router->post('/products/store', 'ProductController::store');
 $router->get('/products/edit/{id}', 'ProductController::edit');
 $router->post('/products/update/{id}', 'ProductController::update');
 $router->get('/products/delete/{id}', 'ProductController::delete');
+
+// REST API routes
+$router->post('api/auth/register', 'ApiAuthController::register');
+$router->post('api/auth/login',    'ApiAuthController::login');
+$router->post('api/auth/refresh',  'ApiAuthController::refresh');
+$router->post('api/auth/logout',   'ApiAuthController::logout');
+
+$router->get('api/products',         'ApiProductController::index');
+$router->get('api/products/{id}',    'ApiProductController::show');
+$router->post('api/products',        'ApiProductController::store');
+$router->put('api/products/{id}',    'ApiProductController::update');
+$router->patch('api/products/{id}',  'ApiProductController::update');
+$router->delete('api/products/{id}', 'ApiProductController::destroy');
+
+/// Migration routes: terminal (CLI) lang, hindi maaabot sa browser
+if (PHP_SAPI === 'cli') {
+    $router->get('create-migration/{migration_class}', 'MigrationController::create_migration');
+    $router->get('migrate', 'MigrationController::migrate');
+    $router->get('rollback', 'MigrationController::rollback');
+    $router->get('rollback-all', 'MigrationController::rollback_all');
+    $router->get('refresh', 'MigrationController::refresh');
+    $router->get('status', 'MigrationController::status');
+}
 ?>

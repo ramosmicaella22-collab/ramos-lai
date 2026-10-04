@@ -44,13 +44,13 @@ defined('PREVENT_DIRECT_ACCESS') OR exit('No direct script access allowed');
 | and disable it back when you're done.
 |
 */
-$config['migration_enabled'] = FALSE;
+$config['migration_enabled'] = filter_var(getenv('MIGRATION_ENABLED') ?: 'false', FILTER_VALIDATE_BOOLEAN);
 
 /*
 |--------------------------------------------------------------------------
 | Migrations table
 |--------------------------------------------------------------------------
-|
+
 | This is the name of the table that will store the current migrations state.
 |
 */

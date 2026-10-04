@@ -67,7 +67,7 @@ class Migration {
         $this->_lava->config->load('migration');
 
         if (!config_item('migration_enabled')) {
-            $this->error('Migrations are disabled in the configuration.');
+        $this->error('Migrations are disabled in the configuration.');
         }
 
         $this->migrations_folder = config_item('migration_path');
